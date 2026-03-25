@@ -1,0 +1,47 @@
+# Datos sensibles y pesados
+data/raw/*.csv
+data/raw/*.xlsx
+
+# Entorno virtual
+venv/
+env/
+__pycache__/
+*.pyc
+
+# Variables de entorno (credenciales)
+.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+```
+
+Y en `requirements.txt` esto:
+```
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+supabase
+python-dotenv
+streamlit
+sqlalchemy
+psycopg2-binary
+```
+
+La estructura que queda es:
+```
+agua-calidad-mx/
+├── data/
+│   ├── raw/          ← datos originales de CONAGUA
+│   └── processed/    ← datos limpios listos para el modelo
+├── src/
+│   ├── etl/          ← limpieza, imputación, escalamiento
+│   ├── model/        ← entrenamiento y predicción
+│   └── dashboard/    ← app Streamlit
+├── notebooks/        ← análisis exploratorio
+├── docs/             ← PDF del dashboard Power BI
+├── tests/
+├── .gitignore
+├── requirements.txt
+└── README.md
