@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+supabase
+python-dotenv
+streamlit
+sqlalchemy
+psycopg2-binary
+openpyxl
