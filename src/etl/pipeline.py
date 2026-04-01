@@ -55,6 +55,13 @@ def subir_a_supabase(df):
             "calidad_fluo":     str(row['CALIDAD_FLUO']),
             "calidad_dur":      str(row['CALIDAD_DUR']),
             "semaforo":         str(row.get('SEMÁFORO', '')),
+            "latitud":          float(row.get('LATITUD', 0)) if pd.notna(row.get('LATITUD')) else None,
+            "longitud":         float(row.get('LONGITUD', 0)) if pd.notna(row.get('LONGITUD')) else None,
+            "alc_original":       float(row['ALC_original']),
+            "conduct_original":   float(row['CONDUCT_original']),
+            "sdt_original":       float(row['SDT_original']),
+            "fluoruros_original": float(row['FLUORUROS_original']),
+            "dur_original":       float(row['DUR_original']),
         })
 
     # Subir en lotes de 500
@@ -69,6 +76,14 @@ def run():
     df = cargar_datos(ruta)
     print("Limpiando e imputando...")
     df = limpiar(df)
+    
+    # Guardar valores originales antes de escalar
+    df['ALC_original']        = df['ALC_mg/L']
+    df['CONDUCT_original']    = df['CONDUCT_mS/cm']
+    df['SDT_original']        = df['SDT_mg/L']
+    df['FLUORUROS_original']  = df['FLUORUROS_mg/L']
+    df['DUR_original']        = df['DUR_mg/L']
+    
     print("Escalando...")
     df = escalar(df)
     print("Subiendo a Supabase...")
