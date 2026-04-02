@@ -1,0 +1,35 @@
+name: Pipeline Diario CONAGUA
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Corre todos los dias a las 6am UTC
+  workflow_dispatch:       # Permite correrlo manualmente desde GitHub
+
+jobs:
+  ejecutar-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Correr pipeline ETL
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        run: python -m src.etl.pipeline
+
+      - name: Reentrenar modelo
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python -m src.model.train
