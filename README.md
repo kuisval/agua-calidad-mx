@@ -78,7 +78,7 @@ agua-calidad-mx/
 
 ---
 
-##Tecnologías
+## Tecnologías
 
 | Capa | Tecnología |
 |---|---|
@@ -93,7 +93,7 @@ agua-calidad-mx/
 
 ---
 
-##Instalación y uso local
+## Instalación y uso local
 
 ### 1. Clonar el repositorio
 ```bash
@@ -134,7 +134,7 @@ python -m streamlit run src/dashboard/app.py
 
 ---
 
-##Pipeline ETL
+## Pipeline ETL
 
 El script `src/etl/pipeline.py` realiza las siguientes transformaciones sobre el dataset de CONAGUA:
 
@@ -149,7 +149,7 @@ El script `src/etl/pipeline.py` realiza las siguientes transformaciones sobre el
 
 ---
 
-##Modelo de Machine Learning
+## Modelo de Machine Learning
 
 **Algoritmo:** Random Forest Classifier (`sklearn`)
 
@@ -174,7 +174,7 @@ División: 80% entrenamiento / 20% prueba (`random_state=42`)
 
 ---
 
-##Dashboard Streamlit
+## Dashboard Streamlit
 
 La app web muestra:
 - **KPIs:** Total de registros, sitios en VERDE / AMARILLO / ROJO
@@ -184,7 +184,7 @@ La app web muestra:
 
 ---
 
-##Dashboard Power BI
+## Dashboard Power BI
 
 El archivo `docs/CONAGUA INFORMES.pbix` conecta directamente a Supabase vía API REST e incluye 4 páginas:
 
@@ -197,7 +197,7 @@ El archivo `docs/CONAGUA INFORMES.pbix` conecta directamente a Supabase vía API
 
 ---
 
-##Automatización — GitHub Actions
+## Automatización — GitHub Actions
 
 El workflow `.github/workflows/pipeline.yml` se ejecuta:
 - **Automáticamente** todos los días a las 6:00 AM UTC
@@ -214,7 +214,7 @@ Las credenciales se pasan como **GitHub Secrets** (nunca se exponen en el códig
 
 ---
 
-##Variables de entorno requeridas
+## Variables de entorno requeridas
 
 | Variable | Descripción |
 |---|---|
@@ -224,7 +224,7 @@ Las credenciales se pasan como **GitHub Secrets** (nunca se exponen en el códig
 
 ---
 
-##Dataset
+## Dataset
 
 **Fuente:** Comisión Nacional del Agua (CONAGUA) — México  
 **Período:** 2012 – 2024  
@@ -234,7 +234,7 @@ Las credenciales se pasan como **GitHub Secrets** (nunca se exponen en el códig
 
 ---
 
-##Autor
+## Autor
 
 **José Luis Valenzuela Araujo**  
 Estudiante de Ingeniería en Sistemas Computacionales — TECNM Campus Culiacán  
