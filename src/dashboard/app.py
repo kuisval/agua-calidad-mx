@@ -21,7 +21,7 @@ with open("src/model/modelo.pkl", "rb") as f:
 # ── Configuración de la página ──────────────────────────────────────────────
 st.set_page_config(
     page_title="Calidad del Agua Subterránea MX",
-    page_icon="💧",
+    page_icon="",
     layout="wide"
 )
 
@@ -53,9 +53,9 @@ with st.spinner("Cargando datos desde Supabase..."):
 # ── KPIs ─────────────────────────────────────────────────────────────────────
 col1, col2, col3, col4 = st.columns(4)
 col1.metric("Total registros",   len(df))
-col2.metric("Sitios VERDE 🟢",   len(df[df['semaforo'] == 'VERDE']))
-col3.metric("Sitios AMARILLO 🟡", len(df[df['semaforo'] == 'AMARILLO']))
-col4.metric("Sitios ROJO 🔴",    len(df[df['semaforo'] == 'ROJO']))
+col2.metric("Sitios VERDE",   len(df[df['semaforo'] == 'VERDE']))
+col3.metric("Sitios AMARILLO", len(df[df['semaforo'] == 'AMARILLO']))
+col4.metric("Sitios ROJO",    len(df[df['semaforo'] == 'ROJO']))
 
 st.divider()
 
@@ -99,11 +99,11 @@ if st.button("Predecir calidad"):
     clases  = modelo.classes_
 
     if pred == 'VERDE':
-        st.success(f"✅ Calidad: **{pred}** — Agua dentro de norma")
+        st.success(f"Calidad: **{pred}** — Agua dentro de norma")
     elif pred == 'AMARILLO':
-        st.warning(f"⚠️ Calidad: **{pred}** — Agua con parámetros límite")
+        st.warning(f"Calidad: **{pred}** — Agua con parámetros límite")
     else:
-        st.error(f"🚨 Calidad: **{pred}** — Agua fuera de norma")
+        st.error(f"Calidad: **{pred}** — Agua fuera de norma")
 
     st.markdown("**Probabilidades por clase:**")
     for clase, p in sorted(zip(clases, proba), key=lambda x: -x[1]):
