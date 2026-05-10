@@ -16,7 +16,7 @@ Este proyecto toma el dataset de calidad del agua subterránea de CONAGUA (2,728
 1. **Limpia y transforma** los datos aplicando imputación de valores faltantes y estandarización Z-score
 2. **Almacena** los datos procesados en una base de datos PostgreSQL en la nube (Supabase)
 3. **Entrena un modelo de Machine Learning** (Random Forest) para predecir el semáforo de calidad del agua (VERDE / AMARILLO / ROJO)
-4. **Despliega un dashboard web** interactivo en Streamlit con KPIs, mapas y predictor en tiempo real
+4. **Despliega un dashboard web** interactivo en Streamlit con KPIs, mapas y predictor en tiempo real LINK: https://agua-calidad-mx-dln2z4qnprayzyxsbyc45h.streamlit.app/
 5. **Visualiza en Power BI** con 4 páginas de análisis conectadas directamente a Supabase
 6. **Automatiza** todo el proceso con GitHub Actions para actualización diaria
 
