@@ -25,7 +25,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("💧 Calidad del Agua Subterránea — CONAGUA")
+st.title("Calidad del Agua Subterránea — CONAGUA")
 st.markdown("Análisis y predicción de calidad del agua subterránea en México (2012–2024)")
 st.divider()
 
@@ -82,7 +82,7 @@ with col_b:
 st.divider()
 
 # ── Predictor ────────────────────────────────────────────────────────────────
-st.subheader("🔍 Predictor de calidad del agua")
+st.subheader(" Predictor de calidad del agua")
 st.markdown("Ingresa los parámetros de una muestra para predecir su calidad:")
 
 col1, col2, col3, col4, col5 = st.columns(5)
